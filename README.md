@@ -147,6 +147,11 @@ Incluye reglas MDF para:
 
 Las correcciones automáticas que modifican contenido crean snapshot previo.
 
+
+### Informe de auditoría exportable
+
+Desde **MD Doctor Pro** puede generarse `MD-FORGE-AUDIT.md` con la puntuación de salud, cobertura, hallazgos Code ↔ Docs y evidencias del último análisis. El informe se genera localmente y sirve como artefacto para una revisión, issue o pull request.
+
 ### Documentation Pack
 
 Puede crear sin sobrescribir documentos existentes:
@@ -277,3 +282,10 @@ No se consideran demostradas por esta auditoría:
 ## Licencia
 
 Consulta `LICENSE`.
+
+## Hardening de la release
+
+- CSP restrictiva en la aplicación principal.
+- Rutas de ZIP normalizadas y entradas inseguras omitidas.
+- Límite de ratio de compresión y lectura descomprimida para reducir riesgo de ZIP bombs.
+- Importación Markdown desde GitHub limitada a rutas seguras.

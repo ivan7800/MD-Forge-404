@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#090c12" />
   <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; connect-src 'self' https://api.github.com https://raw.githubusercontent.com; worker-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'" />
   <meta name="description" content="MD Forge 404 — Documentation OS local-first para analizar, escribir, auditar, construir y publicar documentación Markdown." />
   <title>MD Forge 404 v5 — Documentation OS</title>
   <link rel="manifest" href="manifest.webmanifest" />
@@ -61,7 +62,7 @@
 </section>
 
 <section id="page-doctor" class="page">
-  <div class="page-title"><div><span class="eyebrow">DOCTOR</span><h1>MD Doctor Pro</h1><p>Auditoría Markdown accionable: estructura, GitHub, enlaces internos, imágenes, placeholders y mantenibilidad.</p></div><div class="inline-actions compact"><button id="doctorHistoryBtn">Ver historial</button><button id="runDoctorBtn">Reanalizar</button></div></div>
+  <div class="page-title"><div><span class="eyebrow">DOCTOR</span><h1>MD Doctor Pro</h1><p>Auditoría Markdown accionable: estructura, GitHub, enlaces internos, imágenes, placeholders y mantenibilidad.</p></div><div class="inline-actions compact"><button id="doctorHistoryBtn">Ver historial</button><button id="exportAuditBtn">Exportar informe</button><button id="runDoctorBtn">Reanalizar</button></div></div>
   <div class="doctor-layout"><article class="surface score-panel"><div class="score-ring"><strong id="healthScore">100</strong><span>/100</span></div><h2 id="healthLabel">Excelente</h2><p>Documentation Health</p><div id="doctorBars" class="doctor-bars"></div></article><article class="surface issues-panel"><div class="surface-head"><div><span class="eyebrow">PRIORIDADES</span><h2>Hallazgos</h2></div><span class="pill" id="issueCount">0 incidencias</span></div><div id="doctorIssues" class="doctor-issues"></div></article></div>
   <div id="doctorSummary" class="metrics-row"></div>
   <div class="doctor-extra-grid">
