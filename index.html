@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#090c12" />
+  <meta name="referrer" content="no-referrer" />
+  <meta name="description" content="MD Forge 404 — Documentation OS local-first para analizar, escribir, auditar, construir y publicar documentación Markdown." />
+  <title>MD Forge 404 v5 — Documentation OS</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/app.css" />
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+<header class="topbar">
+  <button id="homeBtn" class="brand" aria-label="Ir a inicio"><img src="assets/icon.svg" alt="" width="32" height="32"><span><strong>MD Forge 404</strong><small>Documentation OS · v5</small></span></button>
+  <nav class="topnav" aria-label="Secciones principales">
+    <button data-page="home" class="active">Inicio</button><button data-page="project">Analizar</button><button data-page="editor">Editor</button><button data-page="doctor">Doctor</button><button data-page="build">Build</button><button data-page="github">GitHub</button><button data-page="publish">Publicar</button>
+  </nav>
+  <div class="top-actions"><button id="searchBtn" class="ghost" title="Buscar en todo el proyecto (Ctrl+Shift+F)">⌕ Buscar</button><button id="commandBtn" class="ghost" title="Paleta de comandos (Ctrl+K)">⌘ Comandos</button><button id="modeBtn" class="ghost" aria-pressed="false">Modo Pro</button></div>
+</header>
+<nav class="mobile-nav" aria-label="Navegación móvil"><button data-page="home">Inicio</button><button data-page="project">Analizar</button><button data-page="editor">Editor</button><button data-page="doctor">Doctor</button><button data-page="build">Build</button><button data-page="github">GitHub</button><button data-page="publish">Publicar</button></nav>
+<main id="main">
+<section id="page-home" class="page active home-page">
+  <div class="hero">
+    <div class="hero-copy"><span class="eyebrow">DOCUMENTATION OS · LOCAL-FIRST</span><h1>Del código a documentación excelente.</h1><p>Analiza evidencias del proyecto, crea un README guiado, escribe con herramientas de IDE, corrige con MD Doctor Pro y construye un sitio de documentación listo para GitHub Pages.</p></div>
+    <div class="hero-score"><span>Proyecto actual</span><strong id="homeScore">100</strong><small>/100 Documentation Health</small></div>
+  </div>
+  <div class="action-grid">
+    <button class="action-card primary-card" id="homeAnalyzeBtn"><span class="card-icon">◫</span><strong>Analizar proyecto</strong><small>Carpeta o ZIP → Project Intelligence</small><span class="card-cta">Analizar →</span></button>
+    <button class="action-card" id="homeWizardBtn"><span class="card-icon">✦</span><strong>README Wizard</strong><small>README profesional paso a paso</small><span class="card-cta">Crear →</span></button>
+    <button class="action-card" id="homeDoctorBtn"><span class="card-icon">✚</span><strong>MD Doctor Pro</strong><small>Linter, enlaces, estructura y GitHub</small><span class="card-cta">Revisar →</span></button>
+    <button class="action-card" id="homeBuildBtn"><span class="card-icon">◆</span><strong>Documentation Site</strong><small>Markdown → web estática navegable</small><span class="card-cta">Construir →</span></button>
+  </div>
+  <div class="recent-panel"><div><span class="eyebrow">PROYECTO ACTUAL</span><h2 id="homeProjectName">MD Forge Demo</h2><p id="homeProjectMeta">Listo para editar.</p></div><div class="inline-actions compact"><button id="homeTemplatesBtn">Plantillas</button><button id="continueBtn" class="primary">Continuar trabajando</button></div></div>
+  <section class="workspace-panel surface"><div class="surface-head"><div><span class="eyebrow">WORKSPACES</span><h2>Mis proyectos</h2><p class="muted">Cambia entre proyectos sin mezclar documentación, historial ni assets.</p></div><button id="newWorkspaceBtn" class="primary">Nuevo workspace</button></div><div id="workspaceList" class="workspace-list"></div></section>
+</section>
+
+<section id="page-project" class="page">
+  <div class="page-title"><div><span class="eyebrow">ANALYZE</span><h1>Project Intelligence</h1><p>Inspección estática local: tecnologías, scripts, PWA, persistencia, calidad del repositorio y evidencias verificables.</p></div><button id="newProjectBtn">Nuevo proyecto</button></div>
+  <div class="project-layout">
+    <article class="surface dropzone" id="dropzone" tabindex="0" role="button" aria-label="Importar carpeta o ZIP"><div class="drop-icon">⇩</div><h2>Arrastra aquí una carpeta o ZIP</h2><p>No ejecutamos código ni subimos archivos. Todo el análisis ocurre en tu navegador.</p><div class="inline-actions"><button id="openFolderBtn" class="primary">Elegir carpeta</button><label class="buttonlike" for="zipInput">Elegir ZIP</label><input id="zipInput" type="file" accept=".zip" hidden></div><small>HTML, CSS, JS/TS, JSON, manifests, Markdown, configuración y otros textos compatibles.</small></article>
+    <article class="surface analysis-card"><div class="surface-head"><div><span class="eyebrow">PROJECT INTELLIGENCE 2.0</span><h2>Qué hemos encontrado</h2></div><span id="analysisStatus" class="pill">Sin analizar</span></div><div id="analysisBox" class="analysis-empty">Carga un proyecto para obtener una radiografía técnica basada en evidencias.</div><div id="evidenceBox" class="evidence-grid"></div><div id="intelligenceDetails" class="intelligence-details"></div><div class="surface-footer"><button id="generateDocsBtn" class="primary" disabled>Generar documentación recomendada</button></div></article>
+  </div>
+</section>
+
+<section id="page-editor" class="page editor-page">
+  <div class="editor-shell" id="editorShell">
+    <aside class="sidebar">
+      <div class="sidebar-head"><span>EXPLORADOR</span><span class="mini-actions"><button id="sidebarSearchBtn" class="iconbtn" title="Buscar" aria-label="Buscar">⌕</button><button id="addFileBtn" class="iconbtn" title="Nuevo archivo" aria-label="Nuevo archivo">＋</button></span></div>
+      <div id="projectMeta" class="project-meta"></div><nav id="fileTree" class="file-tree"></nav>
+      <div class="template-block"><div class="sidebar-head"><span>PLANTILLAS</span></div><div id="templateList" class="template-list"></div></div>
+    </aside>
+    <section class="editor-workspace">
+      <div class="editor-top"><div class="mobile-filebar"><select id="mobileFileSelect" aria-label="Documento actual"></select><button id="mobileAddFileBtn" type="button" aria-label="Nuevo documento">＋</button></div><div id="tabs" class="tabs"></div><div class="editor-actions"><button id="historyBtn" title="Historial del documento">Historial</button><button id="assetsBtn" title="Gestor de imágenes">Assets</button><div class="view-toggle"><button data-view="editor">Editor</button><button data-view="split" class="active">Split</button><button data-view="preview">Preview</button></div></div></div>
+      <div class="formatbar"><button data-insert="heading">H1</button><button data-insert="bold"><b>B</b></button><button data-insert="italic"><i>I</i></button><button data-insert="link">Enlace</button><button data-insert="image">Imagen</button><button data-insert="code">Código</button><button data-insert="list">Lista</button><button data-insert="table">Tabla</button><button data-insert="details">Detalles</button><button data-insert="callout">Aviso</button><button data-insert="toc">TOC</button><button data-insert="mermaid">Mermaid</button></div>
+      <div id="mainSplit" class="main-split split-mode"><section class="editor-pane"><div class="line-editor"><div id="lineNumbers" class="line-numbers" aria-hidden="true"></div><textarea id="editor" spellcheck="false" aria-label="Editor Markdown"></textarea></div><div class="statusbar"><span id="docStats">0 palabras</span><span id="saveState">Guardado ✓</span></div></section><section class="preview-pane"><div class="preview-head"><span>PREVIEW</span><select id="previewStyle" aria-label="Estilo de preview"><option value="github">GitHub</option><option value="clean">Clean</option><option value="docs">Documentation</option></select></div><article id="preview" class="markdown-body github"></article></section></div>
+    </section>
+  </div>
+</section>
+
+<section id="page-doctor" class="page">
+  <div class="page-title"><div><span class="eyebrow">DOCTOR</span><h1>MD Doctor Pro</h1><p>Auditoría Markdown accionable: estructura, GitHub, enlaces internos, imágenes, placeholders y mantenibilidad.</p></div><div class="inline-actions compact"><button id="doctorHistoryBtn">Ver historial</button><button id="runDoctorBtn">Reanalizar</button></div></div>
+  <div class="doctor-layout"><article class="surface score-panel"><div class="score-ring"><strong id="healthScore">100</strong><span>/100</span></div><h2 id="healthLabel">Excelente</h2><p>Documentation Health</p><div id="doctorBars" class="doctor-bars"></div></article><article class="surface issues-panel"><div class="surface-head"><div><span class="eyebrow">PRIORIDADES</span><h2>Hallazgos</h2></div><span class="pill" id="issueCount">0 incidencias</span></div><div id="doctorIssues" class="doctor-issues"></div></article></div>
+  <div id="doctorSummary" class="metrics-row"></div>
+  <div class="doctor-extra-grid">
+    <article class="surface"><div class="surface-head"><div><span class="eyebrow">CODE ↔ DOCS</span><h2>Coherencia con el proyecto</h2></div><strong id="codeDocsScore">—</strong></div><p class="muted">Compara afirmaciones documentales con las evidencias del último proyecto analizado.</p><div id="codeDocsIssues" class="doctor-issues"><div class="analysis-empty">Analiza una carpeta, ZIP o repositorio GitHub para habilitar esta auditoría.</div></div><div class="surface-footer"><button id="runCodeDocsBtn">Auditar código ↔ documentación</button></div></article>
+    <article class="surface"><div class="surface-head"><div><span class="eyebrow">DOCUMENTATION COVERAGE</span><h2>Cobertura</h2></div><strong id="coverageScore">0%</strong></div><div id="coverageGrid" class="coverage-grid"></div></article>
+  </div>
+</section>
+
+<section id="page-build" class="page">
+  <div class="page-title"><div><span class="eyebrow">BUILD</span><h1>Construir</h1><p>Convierte tus Markdown en entregables: pack documental, assets organizados y sitio estático de documentación.</p></div></div>
+  <div class="build-grid">
+    <article class="surface build-card"><span class="build-icon">▤</span><span class="eyebrow">DOCUMENTATION PACK</span><h2>Generar pack completo</h2><p>Crea los documentos que faltan sin sobrescribir los que ya has trabajado.</p><button id="docsPackBtn" class="primary">Elegir documentos</button></article>
+    <article class="surface build-card"><span class="build-icon">▧</span><span class="eyebrow">ASSETS</span><h2>Imágenes y recursos</h2><p>Importa imágenes, genera rutas limpias, texto alternativo e inclúyelas en el ZIP final.</p><button id="buildAssetsBtn">Gestionar assets</button><strong id="assetBuildCount" class="build-stat">0 assets</strong></article>
+    <article class="surface build-card featured"><span class="build-icon">◇</span><span class="eyebrow">SITE BUILDER</span><h2>Documentation Site</h2><p>Genera HTML estático, navegación, buscador local, responsive, tema oscuro/claro y 404 sin dependencias.</p><div class="inline-actions"><button id="previewSiteBtn">Vista previa</button><button id="buildSiteBtn" class="primary">Exportar sitio ZIP</button></div></article>
+  </div>
+  <article class="surface site-settings"><div class="surface-head"><div><span class="eyebrow">SITE BUILDER 2.0</span><h2>Publicación</h2></div><span id="sitePageCount" class="pill">0 páginas</span></div>
+    <div class="grid3"><label>Título<input id="siteTitle" value=""></label><label>Descripción<input id="siteDescription" value=""></label><label>Tema<select id="siteTheme"><option value="auto">Sistema</option><option value="dark">Oscuro</option><option value="light">Claro</option></select></label></div>
+    <div class="grid3 site-grid-second"><label>Página inicial<select id="siteHomeDoc"></select></label><label>URL base opcional<input id="siteBaseUrl" placeholder="https://usuario.github.io/repositorio/"></label><label>Logo<select id="siteLogoSelect"><option value="">Sin logo</option></select></label></div>
+    <label>Pie de página<input id="siteFooter" placeholder="Documentación generada con MD Forge 404"></label>
+    <div class="site-nav-editor"><div class="surface-head compact-head"><div><span class="eyebrow">NAVEGACIÓN</span><h3>Orden de páginas</h3></div><small class="muted">Se usa también para Anterior/Siguiente.</small></div><div id="siteNavOrder" class="site-nav-order"></div></div>
+    <p class="muted">Si indicas una URL base HTTPS, el build también genera <code>sitemap.xml</code> y <code>robots.txt</code>. El sitio incluye breadcrumbs y navegación anterior/siguiente.</p></article>
+</section>
+
+<section id="page-github" class="page">
+  <div class="page-title"><div><span class="eyebrow">GITHUB</span><h1>GitHub Integration</h1><p>Analiza repositorios públicos sin tokens, importa su Markdown y vincula el workspace a su repositorio real.</p></div></div>
+  <div class="github-grid">
+    <article class="surface github-connect"><div class="surface-head"><div><span class="eyebrow">PUBLIC REPOSITORY</span><h2>Conectar repositorio</h2></div><span id="githubConnectionState" class="pill">No conectado</span></div><label>URL o owner/repo<input id="githubRepoInput" placeholder="https://github.com/usuario/proyecto"></label><div class="inline-actions"><button id="githubAnalyzeBtn" class="primary">Analizar repositorio</button><button id="githubLinkBtn" disabled>Vincular al workspace</button><button id="githubImportDocsBtn" disabled>Importar Markdown</button></div><p class="muted">Solo repositorios públicos. MD Forge no solicita ni almacena tokens de acceso.</p></article>
+    <article class="surface"><div class="surface-head"><div><span class="eyebrow">REPOSITORY INTELLIGENCE</span><h2>Resumen</h2></div></div><div id="githubRepoSummary" class="analysis-empty">Introduce un repositorio para analizar metadatos, árbol y archivos de texto relevantes.</div></article>
+  </div>
+  <article class="surface github-actions-card"><div class="surface-head"><div><span class="eyebrow">AUTOMATION</span><h2>GitHub Actions</h2></div><span id="workflowState" class="pill">No generado</span></div><p>Genera un workflow de auditoría documental y un script Node sin dependencias de runtime. Se incluirán en el ZIP exportado.</p><div class="inline-actions"><button id="generateWorkflowBtn">Generar Quality Workflow</button><button id="removeWorkflowBtn" disabled>Eliminar workflow generado</button></div><div id="workflowPreview" class="workflow-preview"></div></article>
+</section>
+
+<section id="page-publish" class="page">
+  <div class="page-title"><div><span class="eyebrow">PUBLISH</span><h1>Publicar</h1><p>Comprueba el estado documental y exporta un paquete limpio con Markdown y assets.</p></div></div>
+  <div class="publish-grid"><article class="surface"><div class="surface-head"><div><span class="eyebrow">GITHUB READINESS</span><h2>Preparación documental</h2></div><strong id="githubScore">0%</strong></div><div id="githubChecklist" class="check-list"></div></article><article class="surface export-card"><span class="eyebrow">EXPORTAR</span><h2>Proyecto documental</h2><p>Incluye todos los Markdown y los assets gestionados por MD Forge.</p><button id="exportZipBtn" class="primary big">Exportar documentación ZIP</button><small>Generado localmente. Incluye extras GitHub generados, Markdown y assets. Sin backend ni telemetría.</small></article></div>
+</section>
+</main>
+
+<dialog id="projectDialog"><form method="dialog" id="projectForm"><div class="dialog-head"><span class="eyebrow">NUEVO PROYECTO</span><h2>Crear espacio de documentación</h2></div><label>Nombre<input name="name" required value="Mi Proyecto"></label><label>Descripción<textarea name="description" rows="3">Proyecto documentado con MD Forge 404.</textarea></label><div class="grid2"><label>Versión<input name="version" value="1.0.0"></label><label>Autor<input name="author" value="I. Roig"></label></div><div class="dialog-actions"><button type="submit" value="cancel">Cancelar</button><button type="submit" value="default" class="primary">Crear proyecto</button></div></form></dialog>
+
+<dialog id="templateDialog"><div class="template-dialog"><div class="dialog-head"><span class="eyebrow">PLANTILLAS</span><h2>Crear documento</h2><p>Si ya existe, podrás decidir si quieres conservarlo o reemplazarlo.</p></div><div id="templateDialogList" class="template-dialog-list"></div><div class="dialog-actions"><button id="closeTemplateDialogBtn" type="button">Cerrar</button></div></div></dialog>
+
+<dialog id="commandDialog" class="command-dialog"><div class="command-box"><input id="commandInput" aria-label="Buscar comando" placeholder="¿Qué quieres hacer?" autocomplete="off"><div id="commandList" class="command-list"></div></div></dialog>
+
+<dialog id="searchDialog"><div class="wide-dialog"><div class="dialog-head"><span class="eyebrow">BÚSQUEDA GLOBAL</span><h2>Buscar en todos los documentos</h2></div><div class="search-controls"><input id="globalSearchInput" aria-label="Texto a buscar" placeholder="Texto a buscar" autocomplete="off"><label class="check-label"><input id="searchCase" type="checkbox"> Mayúsculas/minúsculas</label></div><div id="searchResults" class="search-results"></div><div class="replace-row"><input id="replaceInput" aria-label="Texto de reemplazo" placeholder="Reemplazar por…"><button id="replaceAllBtn">Reemplazar todo</button></div><div class="dialog-actions"><button id="closeSearchBtn">Cerrar</button></div></div></dialog>
+
+<dialog id="wizardDialog"><div class="wizard-dialog"><div class="dialog-head"><span class="eyebrow">README WIZARD</span><h2>README profesional, paso a paso</h2><p id="wizardProgress">Paso 1 de 4</p></div><div class="wizard-step active" data-wizard-step="0"><div class="grid2"><label>Nombre<input id="wizName"></label><label>Tipo<select id="wizType"><option>Web App</option><option>PWA</option><option>Library</option><option>CLI</option><option>Desktop App</option><option>Otro</option></select></label></div><label>Descripción<textarea id="wizDescription" rows="4"></textarea></label></div><div class="wizard-step" data-wizard-step="1"><label>Características <small>Una por línea</small><textarea id="wizFeatures" rows="8"></textarea></label></div><div class="wizard-step" data-wizard-step="2"><label>Instalación<textarea id="wizInstall" rows="7" placeholder="Describe los pasos o comandos"></textarea></label><label>Uso<textarea id="wizUsage" rows="6" placeholder="Describe el flujo principal"></textarea></label></div><div class="wizard-step" data-wizard-step="3"><div class="grid2"><label>Licencia<input id="wizLicense" value="Consultar LICENSE"></label><label>Repositorio<input id="wizRepo" placeholder="https://github.com/usuario/proyecto"></label></div><label>Notas adicionales<textarea id="wizNotes" rows="4"></textarea></label><div id="wizardEvidence" class="wizard-evidence"></div></div><div class="dialog-actions wizard-actions"><button id="wizardCancelBtn">Cancelar</button><button id="wizardBackBtn">Atrás</button><button id="wizardNextBtn" class="primary">Siguiente</button><button id="wizardGenerateBtn" class="primary" hidden>Generar README</button></div></div></dialog>
+
+<dialog id="historyDialog"><div class="wide-dialog"><div class="dialog-head"><span class="eyebrow">HISTORIAL</span><h2 id="historyTitle">Versiones del documento</h2><p>MD Forge crea snapshots antes de modificaciones automáticas importantes.</p></div><div class="history-layout"><div id="historyList" class="history-list"></div><div id="historyPreview" class="history-preview"><div class="analysis-empty">Selecciona una versión para compararla.</div></div></div><div class="dialog-actions"><button id="manualSnapshotBtn">Crear snapshot ahora</button><button id="closeHistoryBtn">Cerrar</button></div></div></dialog>
+
+<dialog id="assetDialog"><div class="wide-dialog"><div class="dialog-head"><span class="eyebrow">ASSET MANAGER</span><h2>Imágenes del proyecto</h2><p>Se almacenan localmente. Máximo 5 MB por archivo.</p></div><div class="asset-drop"><label class="buttonlike primary" for="assetInput">Importar imágenes</label><input id="assetInput" type="file" accept="image/png,image/jpeg,image/webp,image/gif" multiple hidden><span id="assetStorageState" class="muted"></span></div><div id="assetList" class="asset-list"></div><div class="dialog-actions"><button id="closeAssetBtn">Cerrar</button></div></div></dialog>
+
+<dialog id="docsPackDialog"><div class="template-dialog"><div class="dialog-head"><span class="eyebrow">DOCUMENTATION PACK</span><h2>Completar documentación</h2><p>Los documentos existentes se conservarán.</p></div><div id="docsPackList" class="pack-list"></div><div class="dialog-actions"><button id="closeDocsPackBtn">Cancelar</button><button id="generatePackBtn" class="primary">Generar seleccionados</button></div></div></dialog>
+
+<dialog id="diffDialog"><div class="wide-dialog"><div class="dialog-head"><span class="eyebrow">DIFF</span><h2 id="diffTitle">Comparación</h2></div><pre id="diffView" class="diff-view"></pre><div class="dialog-actions"><button id="restoreSnapshotBtn" class="primary" disabled>Restaurar esta versión</button><button id="closeDiffBtn">Cerrar</button></div></div></dialog>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="js/app.js" defer></script>
+</body></html>
