@@ -31,12 +31,20 @@
 - Auditoría estática del propio repo detecta ahora botones con ID sin conexión y controles data-driven sin handler.
 - `.gitignore` ampliado para artefactos de Node/Playwright.
 
+### Final hardening
+- Añadida CSP restrictiva para scripts, conexiones, workers, imágenes y objetos embebidos.
+- Importación ZIP endurecida con normalización de rutas, rechazo de nombres inseguros, límite de ratio de compresión y límite de salida descomprimida.
+- Importación Markdown desde GitHub filtra rutas no seguras antes de incorporarlas al workspace.
+- Site Builder devuelve un error explícito si no existen documentos Markdown.
+- Nuevo exportador `MD-FORGE-AUDIT.md` desde MD Doctor Pro.
+
 ### Security / Privacy
 - La integración GitHub v5 trabaja con repositorios públicos y no solicita ni persiste tokens.
 - Los análisis GitHub descargan un subconjunto priorizado de archivos textuales en vez de ejecutar contenido remoto.
 - Las discrepancias código↔docs se expresan como evidencia/posible inconsistencia cuando un análisis estático no puede demostrar una afirmación absoluta.
 
 ### Verified
+- 18/18 comprobaciones funcionales tras el hardening final en Chromium mediante harness con HTML/CSS/JS reales; cero errores JavaScript.
 - 29/29 comprobaciones funcionales v5 en Chromium mediante harness con HTML/CSS/JS reales.
 - Auditoría estática: IDs, navegación, referencias JS, manifest, assets y cache version.
 - GitHub público probado end-to-end con red simulada; disponibilidad de API pública verificada por separado.
